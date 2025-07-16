@@ -6,6 +6,11 @@ export const addNote = async (req: CustomRequest, res: Response) => {
   try {
     const { title, link } = req.body
     const userId = req.user._id
+    if (!title || !link) {
+      return res
+        .status(404)
+        .json({ message: 'please provide correct input fields' })
+    }
 
     const note = new Note({ title, link, userId })
     await note.save()

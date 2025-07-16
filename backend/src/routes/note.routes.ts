@@ -6,6 +6,6 @@ const router = Router()
 
 router.use(auth)
 router.post('/add', addNote)
-router.delete('/:id', deleteNote)
+router.delete('/delete/:id', deleteNote)
 
 export default router
